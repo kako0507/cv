@@ -1,0 +1,52 @@
+{
+  "name": "kuo-chih-hsiang-cv",
+  "description": "Kuo Chih Hsiang's CV",
+  "version": "0.1.0",
+  "homepage": "http://kako0507.github.io/cv",
+  "author": "Kuo Chih Hsiang <kako0507@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.15.29",
+    "gatsby-image": "^2.2.24",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-offline": "^3.0.11",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-sharp": "^2.2.28",
+    "gatsby-source-filesystem": "^2.1.29",
+    "gatsby-transformer-sharp": "^2.2.20",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "gh-pages": "^2.1.1",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kako0507/kako0507.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kako0507/kako0507.github.io/issues"
+  }
+}
