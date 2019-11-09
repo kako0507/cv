@@ -1,0 +1,17 @@
+.navbar {
+  width: 100vw;
+  .burger {
+    outline: none;
+    border: 0;
+    &:global(:not(.is-active)) {
+      background: transparent;
+    }
+  }
+  
+  :global(.navbar-item.is-active) {
+    font-weight: bold;
+  }
+}
+.has-background-transparent {
+  background-color: transparent;
+}

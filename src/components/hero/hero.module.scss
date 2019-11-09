@@ -1,0 +1,44 @@
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fade-in {
+  to {
+      opacity: 1;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(45deg, #942fc7, #2f93c7, #28a93c);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  >:global(.hero-body) {
+    width: 100vw;
+  }
+}
+
+.angle-double-down {
+  position: absolute;
+  bottom: 10vh;
+  width: 100%;
+  text-align: center;
+  opacity: 0.2;
+  animation: fade-in 1.5s ease infinite;
+  >span {
+    display: inline-block;
+    max-width: 30px;
+    cursor: pointer;
+    outline: none;
+  }
+}

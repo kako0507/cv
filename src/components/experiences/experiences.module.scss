@@ -1,0 +1,36 @@
+@import "bulma/sass/utilities/initial-variables.sass";
+@import "bulma/sass/utilities/derived-variables.sass";
+
+$color-work: $info;
+$color-education: $primary;
+
+.vertical-timeline-element-work,
+.vertical-timeline-element-education {
+  [class^=vertical-timeline-module--icon--] {
+    color: #fff;
+    >svg {
+      width: auto;
+    }
+  }
+}
+
+.vertical-timeline-element-work {
+  [class^=vertical-timeline-module--icon--] {
+    background-color: $color-work;
+  }
+  [class^=vertical-timeline-module--content--] {
+    border-top: 3px solid $color-work;
+  }
+}
+
+.vertical-timeline-element-education {
+  [class^=vertical-timeline-module--icon--] {
+    background-color: $color-education;
+    >svg {
+      margin-left: -14px;
+    }
+  }
+  [class^=vertical-timeline-module--content--] {
+    border-top: 3px solid $color-education;
+  }
+}

@@ -1,0 +1,9 @@
+.footer {
+  * {
+    vertical-align: middle;
+  }
+  :global(.button.is-text) {
+    height: auto;
+    padding: 0 .25em;
+  }
+}

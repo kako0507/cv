@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+$link: #2867B2;
+$green: #13ab67;
+$grey-light: #ddd;
+$grey-lighter: #eee;
+$navbar-item-hover-color: #4a4a4a;
+$card-shadow: 0 3px 0 $grey-light;
+$input-radius: 8px;
+$input-border-color: transparent;
+$input-focus-border-color: $grey-light;
+$input-focus-box-shadow-size: 0;
+
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/grid/_all.sass";
+@import "bulma/sass/layout/_all.sass";
+@import "bulma/sass/elements/container.sass";
+@import "bulma/sass/elements/content.sass";
+@import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/image.sass";
+@import "bulma/sass/elements/title.sass";
+@import "bulma/sass/elements/tag.sass";
+@import "bulma/sass/components/card.sass";
+@import "bulma/sass/components/media.sass";
+@import "bulma/sass/components/navbar.sass";
+@import "bulma/sass/form/shared.sass";
+@import "bulma/sass/form/tools.sass";
+@import "bulma/sass/form/input-textarea.sass";
+
+.card {
+  border-top: 3px solid $info;
+  border-radius: .25em;
+}

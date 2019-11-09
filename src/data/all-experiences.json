@@ -1,0 +1,55 @@
+[
+  {
+    "career": [
+      {
+        "title": "Senior Engineer",
+        "subtitle": "Trend Micro",
+        "dateText": "Jan 2016 - Mar 2019",
+        "contributions": [
+          "Help others to be familiar with functional concepts of React/Redux and develop codes in a more readable &amp; maintainable way",
+          "Refactor project code to improve the data flow of existing code to reduce side effect by immutable data structure",
+          "Enforce the coding style as same as Airbnb JavaScript style guide",
+          "Use Enzyme/Jest to test pure functions",
+          "Rewrite old pages from server-side rendering to client-side rendering",
+          "Sustain old pages wrote by pure JavaScript"
+        ]
+      },
+      {
+        "title": "Curator/Volunteer",
+        "subtitle": "CodeTengu Weekly",
+        "dateText": "Dec 2015 - Nov 2018",
+        "contributions": [
+          "Collect developer-oriented information for programmers who are ethnic Chinese",
+          "Help programmers to learn from the mistakes of others",
+          "We have over 6000 subscribers around the world"
+        ]
+      },
+      {
+        "title": "Engineer",
+        "subtitle": "Quanta Computer Inc.",
+        "dateText": "Jan 2013 - Dec 2015",
+        "contributions": [
+          "Implement a Drag-and-Drop pipeline editor by D3js to provide a UI for connecting different video processing plugins",
+          "Implement Single Page Application by Angular",
+          "Improve rendering performance of Angular app",
+          "Refactor project code from Angular to React/Redux",
+          "Implement Internationalization in frontend codes",
+          "Adopt Python (Django Rest Framework) to implement web server and restful API",
+          "Adopt C (GObject) to implement GStreamer plugins",
+          "Build projects using DockerFile and Fabric"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "title": "Master of Computer Science,",
+        "subtitle": "National Taiwan University of Science and Technology",
+        "dateText": "July 2010 - October 2012",
+        "dissertation": {
+          "title": "Master's Dissertation - Binary Rewriter for Doubling the Number of Registers on ARM Processor:",
+          "description": "A binary rewriter tool which can translate ARM binary to 32 registers version, thus we can remove spill code as possible. We can use this tool to improve the performance about 5 ~ 7%."
+        }
+      }
+    ]
+  }
+]
