@@ -6,11 +6,13 @@ import Navbar from '../components/porfolio/navbar';
 import Hero from '../components/porfolio/hero';
 import Skills from '../components/porfolio/skills';
 import Experiences from '../components/porfolio/experiences';
+import RecentWorks from '../components/porfolio/recent-works';
 import ContactForm from '../components/porfolio/contact-form';
 import Footer from '../components/porfolio/footer';
 
 const IndexPage = () => {
   const sectionRefs = [
+    useRef(null),
     useRef(null),
     useRef(null),
     useRef(null),
@@ -29,7 +31,8 @@ const IndexPage = () => {
       <Hero ref={sectionRefs[0]} />
       <Skills ref={sectionRefs[1]} />
       <Experiences ref={sectionRefs[2]} />
-      <ContactForm ref={sectionRefs[3]} />
+      <RecentWorks ref={sectionRefs[3]} />
+      <ContactForm ref={sectionRefs[4]} />
       <Footer />
     </Layout>
   );

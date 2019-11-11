@@ -128,12 +128,25 @@ const Navbar = ({ activeSection }) => {
             Experiences
           </a>
           <a
-            href="#contact"
+            href="#recent-works"
             className={classNames(
               'navbar-item',
               {
                 'has-text-white': isNavbarTransparent,
                 'is-active': activeSection === 3,
+              },
+            )}
+            onClick={handleClickTag}
+          >
+            Recent Works
+          </a>
+          <a
+            href="#contact"
+            className={classNames(
+              'navbar-item',
+              {
+                'has-text-white': isNavbarTransparent,
+                'is-active': activeSection === 4,
               },
             )}
             onClick={handleClickTag}
