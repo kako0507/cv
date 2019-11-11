@@ -6,11 +6,13 @@ module.exports = {
     author: '@kako0507',
   },
   plugins: [
+    'gatsby-plugin-no-sourcemaps',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     'gatsby-plugin-smoothscroll',
+    'gatsby-plugin-workerize-loader',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -40,6 +42,21 @@ module.exports = {
       options: {
         rule: {
           include: /\.inline\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-redux',
+      options: {
+        // [required] - path to your createStore module
+        pathToCreateStoreModule: './src/store',
+        // [optional] - options passed to `serialize-javascript`
+        // info: https://github.com/yahoo/serialize-javascript#options
+        // will be merged with these defaults:
+        serialize: {
+          space: 0,
+          isJSON: true,
+          unsafe: false,
         },
       },
     },

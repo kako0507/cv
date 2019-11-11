@@ -1,7 +1,21 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const webpack = require('webpack');
 
-// You can delete this file if you're not using it
+exports.onCreateWebpackConfig = ({
+  stage,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.NormalModuleReplacementPlugin(/(.*)\.NODE_ENV(\.*)/, (resource) => {
+        let mode;
+        if (stage === 'develop' || stage === 'develop-html') {
+          mode = 'development';
+        } else {
+          mode = 'production';
+        }
+        // eslint-disable-next-line no-param-reassign
+        resource.request = resource.request.replace(/\.NODE_ENV/, `.${mode}`);
+      }),
+    ],
+  });
+};

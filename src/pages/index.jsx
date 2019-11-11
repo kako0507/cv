@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import useScrollSpy from 'react-use-scrollspy';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Navbar from '../components/navbar';
-import Hero from '../components/hero';
-import Skills from '../components/skills';
-import Experiences from '../components/experiences';
-import ContactForm from '../components/contact-form';
-import Footer from '../components/footer';
+import Layout from '../components/porfolio/layout';
+import Navbar from '../components/porfolio/navbar';
+import Hero from '../components/porfolio/hero';
+import Skills from '../components/porfolio/skills';
+import Experiences from '../components/porfolio/experiences';
+import ContactForm from '../components/porfolio/contact-form';
+import Footer from '../components/porfolio/footer';
 
 const IndexPage = () => {
   const sectionRefs = [

@@ -1,0 +1,184 @@
+$color-red: #c50000;
+$color-black: #000;
+$color-hover: #f6deac;
+
+$mask-red: #8d000a;
+$mask-black: #b3b3b3;
+
+@keyframes flash {
+  50% {
+    opacity: .6;
+    box-shadow: 0 0 0 0 rgba(#fff, .2);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 10px 2px rgba(#fff, .5);
+  }
+}
+
+@keyframes highlight {
+  50% {
+    box-shadow: 0 0 0 0 rgba(gold, 1);
+  }
+  100% {
+    box-shadow: 0 0 15px 3px rgba(gold, 1);
+  }
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  border: 1px solid #333;
+  transition: transform .4s;
+  transform-style: preserve-3d;
+  outline: 0;
+  color: $color-black;
+  box-sizing: border-box;
+
+  >.front, >.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    backface-visibility: hidden;
+  }
+
+  >.front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    >div:nth-of-type(2) {
+      transform: rotate(180deg);
+    }
+
+    >.status {
+      position: absolute;
+      >svg {
+        display: block;
+      }
+      .error {
+        color: $color-red;
+      }
+    }
+
+    >svg:last-child {
+      width: 60%;
+    }
+  }
+
+  .card-value {
+    position: absolute;
+    backface-visibility: hidden;
+
+    >svg {
+      display: block;
+    }
+    >.num {
+      font-weight: bold;
+      text-align: center;
+      backface-visibility: hidden;
+    }
+  }
+
+  >.back {
+    background-image: url('./flip.svg');
+    background-repeat: repeat;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: white;
+    transform: rotateY(180deg);
+  }
+  >.back:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ff3232;
+  }
+
+  &.heart,
+  &.diamond {
+    color: $color-red;
+  }
+  &.heart path,
+  &.diamond path {
+    fill: $color-red;
+  }
+
+  &.show-mask {
+    &.heart,
+    &.diamond {
+      color: $mask-red;
+    }
+    &.heart path,
+    &.diamond path {
+      fill: $mask-red;
+    }
+    >.front {
+      background-color: $mask-black;
+      >.status .error {
+        color: $mask-red;
+      }
+    }
+    >.back {
+      border-color: $mask-black;
+    }
+    >.back:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: .3;
+    }
+  }
+
+  &.unclickable {
+    cursor: default;
+  }
+  &.clickable {
+    cursor: pointer;
+    transition: .2s;
+  }
+  &.hover {
+    box-shadow: 0px 0px 13px 0px rgba(231,166,26,1);
+    >.front {
+      background-color: $color-hover;
+    }
+  }
+
+  &.slow-motion {
+    transition: 1.2s;
+  }
+
+  &.disable-animation {
+    transition: 0s;
+  }
+
+  &.small-card {
+    padding: 3px;
+    background-color: #fff;
+    opacity: 1;
+    &.near-shooting-moon {
+      box-shadow: 0 0 10px 2px rgba(#fff, .5);
+      animation: flash 2s infinite;
+    }
+    &.shooting-moon {
+      box-shadow: 0 0 15px 3px rgba(gold, 1);
+      animation: highlight 2s infinite;
+    }
+    >.card-value {
+      position: static;
+    }
+  }
+}

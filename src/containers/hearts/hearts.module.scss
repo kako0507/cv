@@ -1,0 +1,189 @@
+.hearts-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  background-image: url('./logo.svg'), radial-gradient(closest-side, #cd1919, #450000);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
+  pointer-events: none;
+}
+
+.container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Interstate-Light, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.title-image {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  color: #fff;
+  >img {
+    margin-bottom: 12px;
+    display: block;
+  }
+}
+
+.deal-number {
+  position: absolute;
+  color: #fff;
+}
+
+.btn-stop-game {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.btn-group {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+  button {
+    border: 0;
+    font-size: 14px;
+    color: #ddd;
+    background-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    >i {
+      color: #ddd;
+    }
+    &:hover,
+    &:hover>i {
+      color: #fff;
+    }
+  }
+  .manual-replay {
+    padding-top: 5px;
+    >button {
+      height: 32px;
+      color: rgba(255, 255, 255, .7);
+      background-color: rgba(255, 255, 255, .15);
+      &:first-child {
+        padding-left: 8px;
+        padding-right: 12px;
+      }
+      &:last-child {
+        padding-left: 12px;
+        padding-right: 8px;
+      }
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, .3);
+      }
+      &[disabled] {
+        color: #666;
+        background-color: rgba(127, 127, 127, .2);
+        cursor: not-allowed;
+        >i {
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+.score-board-container {
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  .score-board {
+    position: relative;
+    border: 1px solid #480202;
+    padding: 24px 32px;
+    color: #000;
+    background-color: rgba(255, 255, 255, .85);
+    font-family: Arial;
+    font-size: 16px;
+    .star-container {
+      position: absolute;
+      top: 24px;
+      left: 12px;
+      font-size: 16px;
+      .star {
+        height: 40px;
+        padding: 8px 0 8px 0;
+        display: block;
+        color: #cd1919;
+        box-sizing: border-box;
+      }
+    }
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      border-bottom: 1px solid #fff;
+      vertical-align: middle;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .td-player-name {
+      width: 216px;
+      max-width: 216px;
+      font-weight: bold;
+      text-align: left;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .td-deal-score,
+    .td-game-score {
+      width: 70px;
+      height: 40px;
+      text-align: center;
+      .special-events {
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+    .td-game-score {
+      color: #fff;
+      background-color: #222;
+    }
+  }
+  button {
+    margin: 10px auto;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+  }
+}
+
+.build-info {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  color: #fff;
+  opacity: 0;
+  font-size: 80%;
+}
+
+.errorMsg {
+  color: #fff;
+  font-size: 20px;
+}

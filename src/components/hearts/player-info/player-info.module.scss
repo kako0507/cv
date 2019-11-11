@@ -1,0 +1,48 @@
+.player-info-container {
+  >div  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    color: #fff;
+    transition: 1.2s;
+
+    >.deal-score-container {
+      box-sizing: border-box;
+      >div {
+        display: inline-block;
+        background-color: #000;
+        font-family: Arial;
+        box-sizing: border-box;
+      }
+      &.transparent>div {
+        opacity: 0;
+      }
+    }
+
+    >.position-container {
+      position: absolute;
+      width: 100%;
+      >div {
+        display: inline-block;
+        background-color: #000;
+        opacity: .4;
+        font-family: Arial;
+      }
+    }
+
+    >.player-name-container {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      .player-name {
+        display: inline-block;
+      }
+    }
+  }
+
+  >.south-diff-2 {
+    display: flex;
+    flex-direction: column-reverse;  
+  }
+}

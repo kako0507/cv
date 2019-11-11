@@ -1,0 +1,10 @@
+.count-down {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate3d(0, 0, 100px);
+  color: #000;
+  text-align: center;
+  -webkit-text-stroke: 2px #fff;
+}

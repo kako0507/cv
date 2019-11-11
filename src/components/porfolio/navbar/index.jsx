@@ -6,8 +6,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import useOnClickOutside from 'use-onclickoutside';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import useOnClickOutside from '../../../hooks/use-onclickoutside';
 import styles from './navbar.module.scss';
 
 const Navbar = ({ activeSection }) => {
@@ -20,6 +20,7 @@ const Navbar = ({ activeSection }) => {
   const handleClickTag = useCallback((event) => {
     const tag = event.target.getAttribute('href');
     scrollTo(tag);
+    openMenu(false);
     event.preventDefault();
   }, []);
 
