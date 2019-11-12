@@ -1,10 +1,15 @@
 import _ from 'lodash';
+import uuidv4 from 'uuid/v4';
+import BroadcastChannel from 'broadcast-channel';
 import { southPlayerIndex } from '../../constants/hearts/game';
 import Board from '../../worker/hearts/board.worker';
 import Player from '../../worker/hearts/dummy-player.worker';
 
+
+const uuid = uuidv4();
+
 const postBoardMessage = (msg) => {
-  const boardChannel = new BroadcastChannel('board');
+  const boardChannel = new BroadcastChannel(`board-${uuid}`);
   boardChannel.postMessage({
     ...msg,
     data: {
@@ -18,6 +23,8 @@ const startHeartsGame = ({ emitter, openMsg }) => (
   new Promise((resolve) => {
     const board = new Board();
     let sequenceNumber = 0;
+
+    board.postMessage(uuid);
 
     resolve({
       close: () => {
@@ -38,7 +45,10 @@ const startHeartsGame = ({ emitter, openMsg }) => (
             postBoardMessage(openMsg);
           } else {
             const player = new Player();
-            player.postMessage(i);
+            player.postMessage({
+              id: i,
+              uuid,
+            });
           }
         });
         return;

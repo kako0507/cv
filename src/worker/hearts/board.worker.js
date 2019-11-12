@@ -2,6 +2,7 @@
 /* eslint-disable no-use-before-define */
 import ensureArray from 'ensure-array';
 import _ from 'lodash';
+import BroadcastChannel from 'broadcast-channel';
 import {
   firstCard,
   doublePanaltyCard,
@@ -29,7 +30,7 @@ import e from '../../constants/hearts/event-types';
 
 const { warn, error } = console;
 
-const boardChannel = new BroadcastChannel('board');
+let uuid;
 
 let players = [];
 let roundPlayerIndexs = [];
@@ -87,7 +88,7 @@ const postMessage = (
       players: playerInfos,
     };
   }
-  const target = (isHuman || isWatcher) ? self : (new BroadcastChannel(`player-${id}`));
+  const target = (isHuman || isWatcher) ? self : (new BroadcastChannel(`player-${id}-${uuid}`));
   const event = {
     eventName,
     data: d,
@@ -694,29 +695,29 @@ const handlePickCard = async (payload) => {
   nextTurn();
 };
 
-const eventListener = (event) => {
-  try {
-    const { eventName, data } = event.data;
-    switch (eventName) {
-      case e.CLOSE_GAME:
-        handleCloseGame();
-        break;
-      case e.JOIN:
-        handleJoin(data);
-        break;
-      case e.PASS_MY_CARDS:
-        handlePassMyCards(data);
-        break;
-      case e.PICK_CARD:
-        handlePickCard(data);
-        break;
-      default:
+self.addEventListener('message', ({ data: u }) => {
+  const boardChannel = new BroadcastChannel(`board-${u}`);
+  uuid = u;
+  self.postMessage(true);
+  boardChannel.onmessage = ({ eventName, data }) => {
+    try {
+      switch (eventName) {
+        case e.CLOSE_GAME:
+          handleCloseGame();
+          break;
+        case e.JOIN:
+          handleJoin(data);
+          break;
+        case e.PASS_MY_CARDS:
+          handlePassMyCards(data);
+          break;
+        case e.PICK_CARD:
+          handlePickCard(data);
+          break;
+        default:
+      }
+    } catch (err) {
+      error(err.message);
     }
-  } catch (err) {
-    error(err.message);
-  }
-};
-
-boardChannel.addEventListener('message', eventListener);
-
-self.postMessage(true);
+  };
+});

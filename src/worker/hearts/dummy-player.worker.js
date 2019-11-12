@@ -1,11 +1,12 @@
 /* eslint-disable no-restricted-globals */
 import _ from 'lodash';
+import BroadcastChannel from 'broadcast-channel';
 import faker from 'faker/locale/en_US';
 import e from '../../constants/hearts/event-types';
 
-self.addEventListener('message', ({ data: id }) => {
-  const boardChannel = new BroadcastChannel('board');
-  const playerChannel = new BroadcastChannel(`player-${id}`);
+self.addEventListener('message', ({ data: { id, uuid } }) => {
+  const boardChannel = new BroadcastChannel(`board-${uuid}`);
+  const playerChannel = new BroadcastChannel(`player-${id}-${uuid}`);
 
   const passMyCards = (data) => {
     boardChannel.postMessage({
@@ -39,9 +40,8 @@ self.addEventListener('message', ({ data: id }) => {
     });
   };
 
-  playerChannel.addEventListener('message', (event) => {
+  playerChannel.onmessage = ({ eventName, data }) => {
     try {
-      const { eventName, data } = event.data;
       switch (eventName) {
         case e.PLAYER_NAME_DUP:
           join();
@@ -60,7 +60,7 @@ self.addEventListener('message', ({ data: id }) => {
     } catch (err) {
       console.error(err.message);
     }
-  });
+  };
 
   join();
 });
