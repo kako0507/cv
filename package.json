@@ -33,7 +33,7 @@
     "gatsby-transformer-sharp": "^2.2.20",
     "lodash": "^4.17.15",
     "lottie-web": "^5.5.9",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
